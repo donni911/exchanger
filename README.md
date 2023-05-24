@@ -16,4 +16,4 @@ Develop mode:
 Build mode:
 - Node.js v19.4.0
 - Install packages - yarn / npm install
-- Develop - yarn build / npm run build
+- Build - yarn build / npm run build

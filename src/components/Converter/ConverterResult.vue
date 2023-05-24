@@ -9,9 +9,9 @@
         <h2
           class="text-secondary font-bold"
           :class="{
-            'md:text-xl': formatSum(convertInfo).length >= 30,
-            'md:text-2xl': formatSum(convertInfo).length < 30,
-            'md:text-3xl': formatSum(convertInfo).length <= 20,
+            ' md:text-xl': formatSum(convertInfo).length >= 30,
+            ' md:text-2xl': formatSum(convertInfo).length < 30,
+            ' md:text-3xl': formatSum(convertInfo).length <= 20,
           }"
         >
           {{ formatSum(convertInfo) }}
