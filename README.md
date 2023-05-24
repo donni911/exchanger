@@ -7,13 +7,13 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
 
-### 
+### Scripts
 Develop mode:
-Node.js v19.4.0
-Install packages - yarn / npm install
-Develop - yarn dev / npm run dev
+- Node.js v19.4.0
+- Install packages - yarn / npm install
+- Develop - yarn dev / npm run dev
 
 Build mode:
-Node.js v19.4.0
-Install packages - yarn / npm install
-Develop - yarn build / npm run build
+- Node.js v19.4.0
+- Install packages - yarn / npm install
+- Develop - yarn build / npm run build
