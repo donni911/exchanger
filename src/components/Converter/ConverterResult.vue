@@ -34,7 +34,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 import { formatUnit, formatSum } from "../../modules/format";
 
 const props = defineProps({ convertInfo: Object });

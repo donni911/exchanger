@@ -4,7 +4,7 @@ import List from "@/components/ListCurrencies/List.vue";
 
 describe("List", () => {
   it("renders properly", () => {
-    const wrapper = mount(ConverterResult, {
+    const wrapper = mount(List, {
       props: {
         currencies: {
           AED: 3.6725,
@@ -15,5 +15,6 @@ describe("List", () => {
         },
       },
     });
+    expect(wrapper.findAll("ul > li")).toHaveLength(currencies.length);
   });
 });
