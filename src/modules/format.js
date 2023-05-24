@@ -1,5 +1,7 @@
 export const formatSum = (data) => {
-  return `${data.sum} ${data.currency}  = ${data.convertedSum} ${data.currencyChange}`;
+  return `${data.sum} ${data.currency}  = ${Math.round(data.convertedSum)} ${
+    data.currencyChange
+  }`;
 };
 
 export const formatUnit = (data) => {
