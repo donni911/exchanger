@@ -5,7 +5,7 @@ export const useCurrenciesStore = defineStore("currencies", {
   state: () => ({
     currencies: null,
     favouriteCurrencies: {},
-    originalCurrency: "USD",
+    originalCurrency: "",
   }),
 
   actions: {
@@ -30,26 +30,20 @@ export const useCurrenciesStore = defineStore("currencies", {
 
       this.currencies = temp;
 
-      console.log(this.currencies);
-      console.log(this.favouriteCurrencies);
-      this.concatCurrencies();
+      // this.concatCurrencies();
     },
 
     concatCurrencies() {
       this.currencies = this.favouriteCurrencies.concat(
         this.currencies.slice(0, 5)
       );
+      console.log(this.currencies);
     },
 
-    addFavorite(item, currectCur) {
-      item = { ...item, basicCurrency: currectCur };
+    addFavorite(item) {
+      item = { ...item, basicCurrency: this.originalCurrency };
       this.favouriteCurrencies[this.originalCurrency + item.currency] = item;
-
-      // const itemIndex = this.currencies.findIndex((x) => x === item);
-      // const itemFinded = this.currencies[itemIndex];
-      // itemFinded.basicCurrency = currentCur;
-
-      // console.log(this.currencies);
+      console.log(this.favouriteCurrencies);
     },
 
     deleteFavorite(item) {

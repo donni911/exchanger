@@ -30,7 +30,7 @@ export const fetchCurrency = async (cur) => {
     const data = await response.json();
 
     if (data.result === "error") {
-      throw new Error(`Invalid currency: ${cur}`);
+      throw new Error(`Invalid currency: ${cur}, try again`);
     }
 
     return data;
