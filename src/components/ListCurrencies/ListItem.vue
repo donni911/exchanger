@@ -31,7 +31,7 @@ const props = defineProps({
 const addToFavourite = (item) => {
   item.starred = !item.starred;
   if (item.starred) {
-    store.addFavorite(item);
+    store.addFavourite(item);
   } else {
     store.deleteFavorite(item);
   }

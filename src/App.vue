@@ -25,4 +25,8 @@ import NavBar from "./components/UI/NavBar.vue";
 .fade-leave-to {
   @apply opacity-0;
 }
+
+body {
+  scrollbar-gutter: stable;
+}
 </style>

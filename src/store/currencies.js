@@ -5,51 +5,59 @@ export const useCurrenciesStore = defineStore("currencies", {
   state: () => ({
     currencies: null,
     favouriteCurrencies: {},
-    originalCurrency: "",
+    originalCurrency: "USD",
   }),
 
   actions: {
     async fetchData(value) {
       const data = await fetchCurrency(value);
+      const conversionRates = data.conversion_rates;
 
-      this.currencies = data.conversion_rates;
+      const temp = {};
 
-      let temp = {};
+      Object.entries(conversionRates).forEach(([currency, value]) => {
+        const currencyKey = this.originalCurrency + currency;
 
-      Object.entries(this.currencies).map(([currency, value]) => {
-        temp[this.originalCurrency + currency] = {
-          currency,
-          value,
-          starred: false,
-        };
+        if (!(currencyKey in this.favouriteCurrencies)) {
+          temp[currencyKey] = {
+            currency,
+            value,
+            starred: false,
+          };
+        }
       });
 
-      Object.entries(this.favouriteCurrencies).map(([currency, value]) => {
-        temp[currency] = value;
-      });
-
-      this.currencies = temp;
-
-      // this.concatCurrencies();
+      this.currencies = {
+        ...this.favouriteCurrencies,
+        ...temp,
+      };
+      this.concatCurrencies();
     },
 
     concatCurrencies() {
-      this.currencies = this.favouriteCurrencies.concat(
-        this.currencies.slice(0, 5)
+      const favoriteCurrencies = Object.values(this.favouriteCurrencies);
+      const otherCurrencies = Object.values(this.currencies).filter(
+        (currency) => !favoriteCurrencies.includes(currency)
       );
-      console.log(this.currencies);
+
+      this.currencies = [...favoriteCurrencies, ...otherCurrencies];
     },
 
-    addFavorite(item) {
+    findCurrencies(value) {
+      const currenciesToFind = Object.values(this.currencies).filter((cur) =>
+        cur.currency.toUpperCase().includes(value.toUpperCase())
+      );
+      return currenciesToFind;
+    },
+
+    addFavourite(item) {
       item = { ...item, basicCurrency: this.originalCurrency };
       this.favouriteCurrencies[this.originalCurrency + item.currency] = item;
-      console.log(this.favouriteCurrencies);
     },
 
     deleteFavorite(item) {
-      this.favouriteCurrencies = this.favouriteCurrencies.filter(
-        (fav) => fav.currency !== item.currency
-      );
+      const key = this.originalCurrency + item.currency;
+      delete this.favouriteCurrencies[key];
     },
   },
 });

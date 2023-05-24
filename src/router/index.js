@@ -28,7 +28,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
-  document.title = to.meta?.title ?? "Default Title";
+  document.title = to.meta?.title ?? "Currencies App";
 });
 
 export default router;
