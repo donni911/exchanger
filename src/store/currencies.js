@@ -5,7 +5,7 @@ export const useCurrenciesStore = defineStore("currencies", {
   state: () => ({
     currencies: null,
     favouriteCurrencies: {},
-    originalCurrency: "USD",
+    originalCurrency: "",
   }),
 
   actions: {

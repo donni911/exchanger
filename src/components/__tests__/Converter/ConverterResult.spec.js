@@ -3,7 +3,7 @@ import { mount } from "@vue/test-utils";
 import ConverterResult from "@/components/Converter/ConverterResult.vue";
 
 describe("ConverterResult", () => {
-  it("coorrect state", () => {
+  it("correct state", () => {
     const wrapper = mount(ConverterResult, {
       props: {
         convertInfo: {

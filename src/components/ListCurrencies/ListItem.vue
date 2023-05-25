@@ -22,6 +22,7 @@
 <script setup>
 import icon from "@/components/UI/Icon.vue";
 import { useCurrenciesStore } from "@/store/currencies";
+
 const store = useCurrenciesStore();
 
 const props = defineProps({
