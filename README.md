@@ -8,12 +8,16 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 
 ### Scripts
-Develop mode:
 - Node.js v19.4.0
 - Install packages - yarn / npm install
+
+Develop mode:
 - Develop - yarn dev / npm run dev
 
 Build mode:
-- Node.js v19.4.0
-- Install packages - yarn / npm install
 - Build - yarn build / npm run build
+
+Test mode:
+- Test - yarn test / npm run test
+- Test watch - yarn test-watch / npm run test-watch
+
